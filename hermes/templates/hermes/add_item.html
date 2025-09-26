@@ -1,12 +1,17 @@
 {% extends "hermes/layout.html" %}
 
 {% block body %}
-<button>
-    <a href="{% url 'inventory' %}">
-        Voltar para o Inventário
-    </a>
-</button>
-<h1>
-    Adicione o item
-</h1>
+    <button>
+        <a href="{% url 'hermes:inventory' %}">
+            Voltar para o Inventário
+        </a>
+    </button>
+    <h1>
+        Adicione o item
+    </h1>
+    <form action="{% url 'hermes:add_item' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <br><input type="submit"/>
+    </form>
 {% endblock %}

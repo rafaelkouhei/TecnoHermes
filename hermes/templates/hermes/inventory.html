@@ -4,13 +4,15 @@
     <h1>Inventário</h1>
 
     <button>
-        <a href="{% url 'add_item' %}">
+        <a href="{% url 'hermes:add_item' %}">
             Add Item
         </a>
     </button>
     <ul>
         {% for item in item_list %}
             <li>{{ item }}</li>
+        {% empty %}
+            <li>Inventário vazio...</li>
         {% endfor %}
     </ul>
 {% endblock %}
